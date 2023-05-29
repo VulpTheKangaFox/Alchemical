@@ -1,0 +1,20 @@
+{
+  "itemGroup.alchemical_tab": "Alchemical",
+
+  "item.alchemical.raw_tin": "Raw Tin",
+  "item.alchemical.tin_ingot": "Tin Ingot",
+  "item.alchemical.raw_lead": "Raw Lead",
+  "item.alchemical.lead_ingot": "Lead Ingot",
+  "item.alchemical.raw_silver": "Raw Silver",
+  "item.alchemical.silver_ingot": "Silver Ingot",
+
+  "block.alchemical.tin_ore": "Tin Ore",
+  "block.alchemical.raw_tin_block": "Raw Tin Block",
+  "block.alchemical.tin_block": "Tin Block",
+  "block.alchemical.lead_ore": "Lead Ore",
+  "block.alchemical.raw_lead_block": "Raw Lead Block",
+  "block.alchemical.lead_block": "Lead Block",
+  "block.alchemical.silver_ore": "Silver Ore",
+  "block.alchemical.raw_silver_block": "Raw Silver Block",
+  "block.alchemical.silver_block": "Silver Block"
+}
