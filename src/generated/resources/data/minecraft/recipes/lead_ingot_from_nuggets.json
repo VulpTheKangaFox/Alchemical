@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "group": "lead_ingot",
+  "key": {
+    "#": {
+      "item": "alchemical:lead_nugget"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "item": "alchemical:lead_ingot"
+  },
+  "show_notification": true
+}

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "alchemical:block/fusion_container",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "alchemical:block/fusion_container"
+    },
+    "facing=south": {
+      "model": "alchemical:block/fusion_container",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "alchemical:block/fusion_container",
+      "y": 270
+    }
+  }
+}

@@ -2,9 +2,12 @@ package com.vulp.alchemical;
 
 import com.mojang.logging.LogUtils;
 import com.vulp.alchemical.block.BlockRegistry;
+import com.vulp.alchemical.block.entity.BlockEntityRegistry;
+import com.vulp.alchemical.entity.EntityRegistry;
+import com.vulp.alchemical.item.AlchemicalCreativeModeTabs;
 import com.vulp.alchemical.item.ItemRegistry;
-import com.vulp.alchemical.world.feature.ConfiguredFeatureRegistry;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.CreativeModeTabEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -16,7 +19,7 @@ import org.slf4j.Logger;
 @Mod(Alchemical.MOD_ID)
 public class Alchemical {
     public static final String MOD_ID = "alchemical";
-    private static final Logger LOGGER = LogUtils.getLogger();
+    public static final Logger LOGGER = LogUtils.getLogger();
 
     public Alchemical() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -24,15 +27,22 @@ public class Alchemical {
         ItemRegistry.register(modEventBus);
         BlockRegistry.register(modEventBus);
 
-        ConfiguredFeatureRegistry.register(modEventBus);
+        EntityRegistry.register(modEventBus);
+        BlockEntityRegistry.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
+
+        modEventBus.addListener(this::addCreative);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
 
+    }
+
+    private void addCreative(CreativeModeTabEvent.BuildContents event) {
+        AlchemicalCreativeModeTabs.addAlchemicalCreativeTabs(event);
     }
 
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -44,4 +54,5 @@ public class Alchemical {
         }
 
     }
+
 }

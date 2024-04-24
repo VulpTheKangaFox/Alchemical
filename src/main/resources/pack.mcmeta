@@ -1,8 +1,6 @@
 {
     "pack": {
-        "description": "examplemod resources",
-        "pack_format": 9,
-        "forge:resource_pack_format": 9,
-        "forge:data_pack_format": 10
+        "pack_format": 13,
+        "description": "Resources for Alchemical for 1.19.4"
     }
 }

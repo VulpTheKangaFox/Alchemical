@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "alchemical:block/lead_block"
+    }
+  }
+}

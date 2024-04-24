@@ -1,5 +1,5 @@
 {
-  "itemGroup.alchemical_tab": "Alchemical",
+  "creativemodetab.alchemical_tab": "Alchemical",
 
   "item.alchemical.raw_tin": "Raw Tin",
   "item.alchemical.tin_ingot": "Tin Ingot",
@@ -9,12 +9,27 @@
   "item.alchemical.silver_ingot": "Silver Ingot",
 
   "block.alchemical.tin_ore": "Tin Ore",
+  "block.alchemical.deepslate_tin_ore": "Deepslate Tin Ore",
   "block.alchemical.raw_tin_block": "Raw Tin Block",
   "block.alchemical.tin_block": "Tin Block",
   "block.alchemical.lead_ore": "Lead Ore",
+  "block.alchemical.deepslate_lead_ore": "Deepslate Lead Ore",
   "block.alchemical.raw_lead_block": "Raw Lead Block",
   "block.alchemical.lead_block": "Lead Block",
   "block.alchemical.silver_ore": "Silver Ore",
+  "block.alchemical.deepslate_silver_ore": "Deepslate Silver Ore",
   "block.alchemical.raw_silver_block": "Raw Silver Block",
-  "block.alchemical.silver_block": "Silver Block"
+  "block.alchemical.silver_block": "Silver Block",
+  "block.alchemical.elemental_container": "Elemental Container",
+  "block.alchemical.fusion_container": "Fusion Container",
+  "block.alchemical.primal_container": "Primal Container",
+  "block.alchemical.arcane_container": "Arcane Container",
+  "block.alchemical.capture_block.info_minimized": "Hold %s for info",
+  "block.alchemical.capture_block.info_maximized": "Press %s to place this as a block. Can be used on a block that holds elementals to give/take/swap.",
+  "block.alchemical.capture_block.wrong_tier": "You need a stronger container to capture this elemental",
+
+  "entity.alchemical.fire_elemental": "Fire Elemental",
+  "entity.alchemical.water_elemental": "Water Elemental",
+  "entity.alchemical.earth_elemental": "Earth Elemental",
+  "entity.alchemical.air_elemental": "Air Elemental"
 }

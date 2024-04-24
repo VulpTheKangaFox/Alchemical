@@ -1,0 +1,4 @@
+{
+	"render_type": "minecraft:translucent",
+    "parent": "alchemical:block/elemental_container"
+}

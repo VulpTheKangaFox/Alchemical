@@ -1,0 +1,17 @@
+// 1.19.4	2024-04-23T14:27:13.7273843	Tags for minecraft:block mod id alchemical
+98b09e5a5f630cf07c472978a6725c70023fb1bc data/forge/tags/blocks/ores.json
+55b2f2e85a8d4dde8c0fc655e4b8d421d471278f data/forge/tags/blocks/ores/lead.json
+fba4f80d70ddc59d653da4d7644bee811608487c data/forge/tags/blocks/ores/silver.json
+9ce10a172ca708c9ca11c5058d215b608e261b3d data/forge/tags/blocks/ores/tin.json
+98b09e5a5f630cf07c472978a6725c70023fb1bc data/forge/tags/blocks/ore_rates/singular.json
+f76ba56d33cf746ea7f722d46e2b39c29daa0f39 data/forge/tags/blocks/storage_blocks.json
+b5508d9cde3fe8b79b1c54b006021b19018b40c8 data/forge/tags/blocks/storage_blocks/lead.json
+cbfd0f83deb2f7054c37818569601903f06f08aa data/forge/tags/blocks/storage_blocks/raw_lead.json
+3ef43c304db2d177ea9b4c3f3456a3868cb9abf2 data/forge/tags/blocks/storage_blocks/raw_silver.json
+62dbf98c7f2cb18b74963f687c422dc64198c8b1 data/forge/tags/blocks/storage_blocks/raw_tin.json
+f2a07492ab54027a3b81e4a7471a71a64119ea45 data/forge/tags/blocks/storage_blocks/silver.json
+7ec2db5ce06c7f24175f203005670432b2ddaba0 data/forge/tags/blocks/storage_blocks/tin.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/axe.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/hoe.json
+254a02b99e129baf63ffce0b42d3bad0a6f14d48 data/minecraft/tags/blocks/mineable/pickaxe.json
+35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/shovel.json

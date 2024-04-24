@@ -1,0 +1,19 @@
+{
+  "values": [
+    "alchemical:tin_ore",
+    "alchemical:deepslate_tin_ore",
+    "alchemical:raw_tin_block",
+    "alchemical:tin_block",
+    "alchemical:lead_ore",
+    "alchemical:deepslate_lead_ore",
+    "alchemical:raw_lead_block",
+    "alchemical:lead_block",
+    "alchemical:silver_ore",
+    "alchemical:deepslate_silver_ore",
+    "alchemical:raw_silver_block",
+    "alchemical:silver_block",
+    "alchemical:fusion_container",
+    "alchemical:primal_container",
+    "alchemical:arcane_container"
+  ]
+}
