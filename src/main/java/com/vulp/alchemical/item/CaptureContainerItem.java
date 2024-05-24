@@ -2,7 +2,7 @@ package com.vulp.alchemical.item;
 
 import com.mojang.blaze3d.platform.InputConstants;
 import com.vulp.alchemical.block.CaptureBlock;
-import com.vulp.alchemical.block.entity.CaptureBlockEntity;
+import com.vulp.alchemical.block.entity.CaptureContainerBlockEntity;
 import com.vulp.alchemical.entity.AbstractElemental;
 import com.vulp.alchemical.entity.ElementalTier;
 import net.minecraft.ChatFormatting;
@@ -28,23 +28,19 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
 
-public class CaptureItem extends BlockItem {
+public class CaptureContainerItem extends BlockItem {
 
     protected static final List<String> IGNORED_TAGS = Arrays.asList("Air", "ArmorDropChances", "ArmorItems", "Brain", "CanPickUpLoot", "DeathTime", "FallDistance", "FallFlying", "Fire", "HandDropChances", "HandItems", "HurtByTimestamp", "HurtTime", "LeftHanded", "Motion", "OnGround", "PortalCooldown", "Pos", "Rotation", "Passengers", "Leash", "UUID");
     private final ElementalTier maxTier;
 
-    public CaptureItem(ElementalTier maxTier, Block block, Properties properties) {
+    public CaptureContainerItem(ElementalTier maxTier, Block block, Properties properties) {
         super(block, properties);
         this.maxTier = maxTier;
-    }
-
-    @Override
-    public Object getRenderPropertiesInternal() {
-        return super.getRenderPropertiesInternal();
     }
 
     public ElementalTier getMaxTier() {
@@ -76,6 +72,7 @@ public class CaptureItem extends BlockItem {
 
     // TODO: Transfer an elemental from a held container to a placed container and vice-versa.
     // NOTE: Right-Click to place, Shift+Right-Click to let elemental out.
+    @Override
     public InteractionResult useOn(UseOnContext context) {
         Level level = context.getLevel();
         Player player = context.getPlayer();
@@ -91,7 +88,7 @@ public class CaptureItem extends BlockItem {
             BlockState state = level.getBlockState(pos);
 
             boolean isClient = !(level instanceof ServerLevel);
-            if (state.getBlock() instanceof CaptureBlock && level.getBlockEntity(pos) instanceof CaptureBlockEntity blockEntity) {
+            if (state.getBlock() instanceof CaptureBlock && level.getBlockEntity(pos) instanceof CaptureContainerBlockEntity blockEntity) {
 
                 CompoundTag newInfo = blockEntity.putElemental(targetInfo);
 
@@ -133,21 +130,35 @@ public class CaptureItem extends BlockItem {
         }
     }
 
+    public static Component getFormattedElementalName(AbstractElemental elemental) {
+        String name = elemental.getType().getDescription().toString();
+        if (!name.isEmpty()) {
+            return Component.translatable(name).withStyle(Style.EMPTY.withColor(elemental.decimalColor()).withItalic(true));
+        }
+        return Component.literal("???").withStyle(ChatFormatting.BLACK);
+    }
+
+    @Nullable
+    public static Component getFormattedElementalName(ItemStack elementalContainer) {
+        if (elementalContainer.hasTag()) {
+            CompoundTag targetInfo = elementalContainer.getOrCreateTagElement("held_elemental");
+            if (!targetInfo.isEmpty()) {
+                String name = targetInfo.getString("elemental_name");
+                if (!name.isEmpty()) {
+                    return Component.translatable(name).withStyle(Style.EMPTY.withColor(targetInfo.getInt("elemental_color")).withItalic(true));
+                }
+            }
+            return Component.literal("???").withStyle(ChatFormatting.BLACK);
+        }
+        return null;
+    }
+
     @Override
     public Component getName(ItemStack stack) {
         MutableComponent text = super.getName(stack).copy();
-        if (stack.hasTag()) {
-            CompoundTag targetInfo = stack.getOrCreateTagElement("held_elemental");
-            if (!targetInfo.isEmpty()) {
-                text.append(Component.literal(" (").withStyle(ChatFormatting.ITALIC));
-                String name = targetInfo.getString("elemental_name");
-                if (name.isEmpty()) {
-                    text.append(Component.literal("???").withStyle(ChatFormatting.BLACK));
-                } else {
-                    text.append(Component.translatable(name).withStyle(Style.EMPTY.withColor(targetInfo.getInt("elemental_color")).withItalic(true)));
-                }
-                text.append(Component.literal(")").withStyle(ChatFormatting.ITALIC));
-            }
+        Component name = getFormattedElementalName(stack);
+        if (name != null) {
+            text.append(Component.literal(" (").withStyle(ChatFormatting.ITALIC)).append(name).append(Component.literal(")").withStyle(ChatFormatting.ITALIC));
         }
         return text;
     }
@@ -182,6 +193,7 @@ public class CaptureItem extends BlockItem {
         return targetInfo;
     }
 
+    // Temporary visual indicator
     @Override
     public boolean isFoil(ItemStack stack) {
         return stack.hasTag() && !stack.getOrCreateTagElement("held_elemental").getCompound("elemental_info").isEmpty();

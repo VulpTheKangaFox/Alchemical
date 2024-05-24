@@ -5,14 +5,15 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class CaptureBlockEntity extends BlockEntity {
+public class CaptureContainerBlockEntity extends BlockEntity implements IElementalCaptureBlockEntity {
 
     private CompoundTag elemental = new CompoundTag();
 
-    public CaptureBlockEntity(BlockPos pos, BlockState state) {
-        super(BlockEntityRegistry.HOLDER_BLOCK.get(), pos, state);
+    public CaptureContainerBlockEntity(BlockPos pos, BlockState state) {
+        super(BlockEntityRegistry.CAPTURE_BLOCK.get(), pos, state);
     }
 
+    @Override
     protected void saveAdditional(CompoundTag tag) {
         super.saveAdditional(tag);
         if (this.elemental != null) {
@@ -20,6 +21,7 @@ public class CaptureBlockEntity extends BlockEntity {
         }
     }
 
+    @Override
     public void load(CompoundTag tag) {
         super.load(tag);
         CompoundTag elementalInfo = tag.getCompound("held_elemental");
@@ -28,18 +30,14 @@ public class CaptureBlockEntity extends BlockEntity {
         }
     }
 
-    // Returns back the current elemental information in the event of swapping what's in the container with the container in hand.
-    public CompoundTag putElemental(CompoundTag elementalData) {
-        CompoundTag currentElemental = new CompoundTag();
-        if (!this.elemental.isEmpty()) {
-            currentElemental = this.elemental.copy();
-        }
-        this.elemental = elementalData;
-        return currentElemental;
+    @Override
+    public CompoundTag getElementalTags() {
+        return this.elemental;
     }
 
-    public CompoundTag getElemental() {
-        return this.elemental;
+    @Override
+    public void setElementalTags(CompoundTag elementalInfo) {
+        this.elemental = elementalInfo;
     }
 
 }

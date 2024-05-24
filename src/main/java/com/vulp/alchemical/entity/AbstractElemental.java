@@ -41,6 +41,7 @@ public abstract class AbstractElemental extends PathfinderMob implements Neutral
         }
     }
 
+    @Override
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(DATA_REMAINING_ANGER_TIME, 0);
@@ -88,6 +89,7 @@ public abstract class AbstractElemental extends PathfinderMob implements Neutral
     protected PathNavigation createNavigation(Level level) {
         if (doesHover()) {
             FlyingPathNavigation flyingpathnavigation = new FlyingPathNavigation(this, level) {
+                @Override
                 public boolean isStableDestination(BlockPos pos) {
                     return !this.level.getBlockState(pos.below()).isAir();
                 }
@@ -155,23 +157,28 @@ public abstract class AbstractElemental extends PathfinderMob implements Neutral
         return doesHover();
     }
 
+    @Override
     public int getRemainingPersistentAngerTime() {
         return this.entityData.get(DATA_REMAINING_ANGER_TIME);
     }
 
+    @Override
     public void setRemainingPersistentAngerTime(int pTime) {
         this.entityData.set(DATA_REMAINING_ANGER_TIME, pTime);
     }
 
+    @Override
     @javax.annotation.Nullable
     public UUID getPersistentAngerTarget() {
         return this.persistentAngerTarget;
     }
 
+    @Override
     public void setPersistentAngerTarget(@javax.annotation.Nullable UUID pTarget) {
         this.persistentAngerTarget = pTarget;
     }
 
+    @Override
     public void startPersistentAngerTimer() {
         this.setRemainingPersistentAngerTime(PERSISTENT_ANGER_TIME.sample(this.random));
     }
@@ -184,6 +191,7 @@ public abstract class AbstractElemental extends PathfinderMob implements Neutral
         /**
          * Updates look
          */
+        @Override
         public void tick() {
             if (!AbstractElemental.this.isAngry()) {
                 super.tick();
@@ -199,10 +207,12 @@ public abstract class AbstractElemental extends PathfinderMob implements Neutral
         /**
          * Returns whether an in-progress EntityAIBase should continue executing
          */
+        @Override
         public boolean canContinueToUse() {
             return AbstractElemental.this.isAngry() && super.canContinueToUse();
         }
 
+        @Override
         protected void alertOther(Mob pMob, LivingEntity pTarget) {
             if (pMob instanceof AbstractElemental && this.mob.hasLineOfSight(pTarget)) {
                 pMob.setTarget(pTarget);
@@ -220,6 +230,7 @@ public abstract class AbstractElemental extends PathfinderMob implements Neutral
          * Returns whether execution should begin. You can also read and cache any state necessary for execution in this
          * method as well.
          */
+        @Override
         public boolean canUse() {
             return this.elementalCanTarget() && super.canUse();
         }
@@ -227,6 +238,7 @@ public abstract class AbstractElemental extends PathfinderMob implements Neutral
         /**
          * Returns whether an in-progress EntityAIBase should continue executing
          */
+        @Override
         public boolean canContinueToUse() {
             boolean flag = this.elementalCanTarget();
             if (flag && this.mob.getTarget() != null) {

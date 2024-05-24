@@ -1,8 +1,8 @@
 package com.vulp.alchemical.block;
 
 import com.vulp.alchemical.block.entity.BlockEntityRegistry;
-import com.vulp.alchemical.block.entity.CaptureBlockEntity;
-import com.vulp.alchemical.item.CaptureItem;
+import com.vulp.alchemical.block.entity.CaptureContainerBlockEntity;
+import com.vulp.alchemical.entity.ElementalTier;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -17,26 +17,26 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.parameters.LootContextParams;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-// TODO: For some reason the outlines rendered on a translucent block are also translucent, which I don't want since it lets you see through the block.
-public abstract class CaptureBlock extends BaseEntityBlock {
+public abstract class CaptureBlock extends BaseEntityBlock implements ICaptureBlock{
 
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
     public static final BooleanProperty MULTIBLOCK = BooleanProperty.create("multiblock");
+    private final ElementalTier maxTier;
 
-    public CaptureBlock(Properties pProperties) {
+    public CaptureBlock(ElementalTier maxTier, Properties pProperties) {
         super(pProperties);
+        this.maxTier = maxTier;
         this.registerDefaultState(this.stateDefinition.any().setValue(FACING, Direction.NORTH).setValue(MULTIBLOCK, false));
     }
 
     @Nullable
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
-        return new CaptureBlockEntity(pos, state);
+        return new CaptureContainerBlockEntity(pos, state);
     }
 
     @Override
@@ -52,7 +52,7 @@ public abstract class CaptureBlock extends BaseEntityBlock {
 
     @Override
     public void setPlacedBy(Level level, BlockPos pos, BlockState state, @Nullable LivingEntity placer, ItemStack stack) {
-            level.getBlockEntity(pos, BlockEntityRegistry.HOLDER_BLOCK.get()).ifPresent((blockEntity) -> {
+            level.getBlockEntity(pos, BlockEntityRegistry.CAPTURE_BLOCK.get()).ifPresent((blockEntity) -> {
                 if (stack.hasTag()) {
                     CompoundTag targetInfo = stack.getOrCreateTagElement("held_elemental");
                     if (!targetInfo.isEmpty()) {
@@ -65,17 +65,12 @@ public abstract class CaptureBlock extends BaseEntityBlock {
 
     @Override
     public List<ItemStack> getDrops(BlockState state, LootContext.Builder builder) {
-        List<ItemStack> drops = super.getDrops(state, builder);
-        drops.forEach(stack -> {
-            if (stack.getItem() instanceof CaptureItem) {
-                if (builder.getOptionalParameter(LootContextParams.BLOCK_ENTITY) instanceof CaptureBlockEntity blockEntity) {
-                    if (blockEntity.getElemental() != null) {
-                        stack.addTagElement("held_elemental", blockEntity.getElemental());
-                    }
-                }
-            }
-        });
-        return drops;
+        return updateDrops(super.getDrops(state, builder), builder);
+    }
+
+    @Override
+    public ElementalTier getMaxTier() {
+        return maxTier;
     }
 
     @Override
@@ -90,7 +85,7 @@ public abstract class CaptureBlock extends BaseEntityBlock {
 
     @Override
     protected void createBlockStateDefinition(StateDefinition.Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING);
+        pBuilder.add(FACING, MULTIBLOCK);
     }
 
 }

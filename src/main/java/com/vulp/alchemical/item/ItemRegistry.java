@@ -15,6 +15,9 @@ public class ItemRegistry {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Alchemical.MOD_ID);
 
+    // TOOLS
+    public static final RegistryObject<Item> ELEMENTALISTS_HAMMER = ITEMS.register("elementalists_hammer", () -> new ElementalistsHammerItem(new Item.Properties().stacksTo(1)));
+
     // METALS
     public static final RegistryObject<Item> RAW_TIN = ITEMS.register("raw_tin", () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> TIN_INGOT = ITEMS.register("tin_ingot", () -> new Item(new Item.Properties()));
@@ -33,10 +36,10 @@ public class ItemRegistry {
     public static final RegistryObject<Item> AIR_ESSENCE = ITEMS.register("air_essence", () -> new Item(new Item.Properties()));
 
     // ELEMENTAL CAPTURE ITEMS
-    public static final RegistryObject<Item> ELEMENTAL_CONTAINER = ITEMS.register("elemental_container", () -> new CaptureItem(ElementalTier.ELEMENTAL, BlockRegistry.ELEMENTAL_CONTAINER.get(), new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> FUSION_CONTAINER = ITEMS.register("fusion_container", () -> new CaptureItem(ElementalTier.FUSION, BlockRegistry.FUSION_CONTAINER.get(), new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> PRIMAL_CONTAINER = ITEMS.register("primal_container", () -> new CaptureItem(ElementalTier.PRIMAL, BlockRegistry.PRIMAL_CONTAINER.get(), new Item.Properties().stacksTo(1)));
-    public static final RegistryObject<Item> ARCANE_CONTAINER = ITEMS.register("arcane_container", () -> new CaptureItem(ElementalTier.ARCANE, BlockRegistry.ARCANE_CONTAINER.get(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> ELEMENTAL_CONTAINER = ITEMS.register("elemental_container", () -> new CaptureContainerItem(ElementalTier.ELEMENTAL, BlockRegistry.ELEMENTAL_CONTAINER.get(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> FUSION_CONTAINER = ITEMS.register("fusion_container", () -> new CaptureContainerItem(ElementalTier.FUSION, BlockRegistry.FUSION_CONTAINER.get(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> PRIMAL_CONTAINER = ITEMS.register("primal_container", () -> new CaptureContainerItem(ElementalTier.PRIMAL, BlockRegistry.PRIMAL_CONTAINER.get(), new Item.Properties().stacksTo(1)));
+    public static final RegistryObject<Item> ARCANE_CONTAINER = ITEMS.register("arcane_container", () -> new CaptureContainerItem(ElementalTier.ARCANE, BlockRegistry.ARCANE_CONTAINER.get(), new Item.Properties().stacksTo(1)));
 
     // SPAWN EGGS
     public static final RegistryObject<Item> FIRE_ELEMENTAL_SPAWN_EGG = ITEMS.register("fire_elemental_spawn_egg", () -> new ForgeSpawnEggItem(EntityRegistry.FIRE_ELEMENTAL, 16743446, 16768521, new Item.Properties()));

@@ -31,15 +31,18 @@ public class ElementalFurnaceBlock extends AbstractElementalFurnaceBlock {
         super(pProperties);
     }
 
+    @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new ElementalFurnaceBlockEntity(pPos, pState);
     }
 
+    @Override
     @Nullable
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
         return createFurnaceTicker(pLevel, pBlockEntityType, BlockEntityRegistry.ELEMENTAL_FURNACE);
     }
 
+    @Override
     protected void openContainer(Level pLevel, BlockPos pPos, Player pPlayer) {
         BlockEntity blockentity = pLevel.getBlockEntity(pPos);
         if (blockentity instanceof ElementalFurnaceBlockEntity) {
@@ -48,6 +51,7 @@ public class ElementalFurnaceBlock extends AbstractElementalFurnaceBlock {
         }
     }
 
+    @Override
     public void animateTick(BlockState pState, Level pLevel, BlockPos pPos, RandomSource pRandom) {
         if (pState.getValue(LIT)) {
             double d0 = (double)pPos.getX() + 0.5D;
