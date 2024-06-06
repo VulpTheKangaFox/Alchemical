@@ -1,3 +1,4 @@
+/*
 package com.vulp.alchemical.block;
 
 import com.vulp.alchemical.block.entity.CaptureContainerBlockEntity;
@@ -33,3 +34,4 @@ public abstract class AbstractElementalFurnaceBlock extends AbstractFurnaceBlock
         return super.updateShape(state, direction, neighborState, level, pos, neighborPos);
     }
 }
+*/

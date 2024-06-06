@@ -8,6 +8,7 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.properties.BlockStateProperties;
 import net.minecraft.world.level.material.Material;
 import net.minecraft.world.level.material.MaterialColor;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -33,11 +34,13 @@ public class BlockRegistry {
     public static final RegistryObject<Block> DEEPSLATE_SILVER_ORE = registerBlock("deepslate_silver_ore", () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(3.0F, 3.0F)));
     public static final RegistryObject<Block> RAW_SILVER_BLOCK = registerBlock("raw_silver_block", () -> new DropExperienceBlock(BlockBehaviour.Properties.of(Material.STONE).requiresCorrectToolForDrops().strength(5.0F, 6.0F)));
     public static final RegistryObject<Block> SILVER_BLOCK = registerBlock("silver_block", () -> new Block(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(5.0F, 6.0F).sound(SoundType.METAL)));
-    public static final RegistryObject<Block> ELEMENTAL_CONTAINER = registerBlockNoItem("elemental_container", () -> new ElementalContainerBlock(BlockBehaviour.Properties.of(Material.GLASS).requiresCorrectToolForDrops().strength(4.0F, 4.0F).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> ELEMENTAL_CONTAINER = registerBlockNoItem("elemental_container", () -> new ElementalContainerBlock(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().isViewBlocking((state, level, pos) -> false).requiresCorrectToolForDrops().strength(4.0F, 4.0F).sound(SoundType.METAL)));
     public static final RegistryObject<Block> FUSION_CONTAINER = registerBlockNoItem("fusion_container", () -> new FusionContainerBlock(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().isViewBlocking((state, level, pos) -> false).requiresCorrectToolForDrops().strength(4.0F, 4.0F).sound(SoundType.METAL)));
     public static final RegistryObject<Block> PRIMAL_CONTAINER = registerBlockNoItem("primal_container", () -> new PrimalContainerBlock(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().isViewBlocking((state, level, pos) -> false).requiresCorrectToolForDrops().strength(4.0F, 4.0F).sound(SoundType.METAL)));
     public static final RegistryObject<Block> ARCANE_CONTAINER = registerBlockNoItem("arcane_container", () -> new ArcaneContainerBlock(BlockBehaviour.Properties.of(Material.METAL).noOcclusion().isViewBlocking((state, level, pos) -> false).requiresCorrectToolForDrops().strength(4.0F, 4.0F).sound(SoundType.METAL)));
 
+    public static final RegistryObject<Block> TEST_MAIN = registerBlockNoItem("test_main", () -> new TestMainBlock(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(4.0F, 4.0F).lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 13 : 0).sound(SoundType.METAL)));
+    public static final RegistryObject<Block> TEST_DUMMY = registerBlockNoItem("test_dummy", () -> new TestDummyBlock(BlockBehaviour.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(4.0F, 4.0F).lightLevel(state -> state.getValue(BlockStateProperties.LIT) ? 13 : 0).sound(SoundType.METAL)));
 
     private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

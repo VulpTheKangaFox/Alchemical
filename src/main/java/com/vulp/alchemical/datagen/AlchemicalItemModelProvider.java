@@ -38,7 +38,8 @@ public class AlchemicalItemModelProvider extends ItemModelProvider {
                 ItemRegistry.FIRE_ELEMENTAL_SPAWN_EGG.getId().getPath(),
                 ItemRegistry.WATER_ELEMENTAL_SPAWN_EGG.getId().getPath(),
                 ItemRegistry.EARTH_ELEMENTAL_SPAWN_EGG.getId().getPath(),
-                ItemRegistry.AIR_ELEMENTAL_SPAWN_EGG.getId().getPath());
+                ItemRegistry.AIR_ELEMENTAL_SPAWN_EGG.getId().getPath()
+        );
     }
 
     private void createSpawnEggs(ResourceLocation template, String... paths) {

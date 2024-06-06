@@ -1,4 +1,4 @@
-// 1.19.4	2024-04-23T14:27:13.7253838	Block States: alchemical
+// 1.19.4	2024-06-06T16:44:54.6374106	Block States: alchemical
 077f81c46f85c089260ceab9dae8a44677524e65 assets/alchemical/blockstates/arcane_container.json
 ad01a9d9d132e87814e4846ce13b121db62d035c assets/alchemical/blockstates/deepslate_lead_ore.json
 407451888c4d702a7cbe14ca45ac468b1c1a00cc assets/alchemical/blockstates/deepslate_silver_ore.json
@@ -13,6 +13,8 @@ a266b9a98e52a557c81cc6e2cc30572bce581cf6 assets/alchemical/blockstates/raw_silve
 6e32fb1fda15ab08721d4539d7212ef3cc2d386d assets/alchemical/blockstates/raw_tin_block.json
 f4817858894c964dfd77a9436c21b82189d9dd46 assets/alchemical/blockstates/silver_block.json
 7748bcc2fe3b983c9b4c92ff41b85b1e374ee817 assets/alchemical/blockstates/silver_ore.json
+82fd17c4b3964069487324716cc6c1c23d7ea90b assets/alchemical/blockstates/test_dummy.json
+8be73f7d07d9756b0fcf358031029540a88306e9 assets/alchemical/blockstates/test_main.json
 af43c30bf93640b75747afe6529da45c202abe98 assets/alchemical/blockstates/tin_block.json
 6f99746b77b41c092bdbb62f347aee1908860885 assets/alchemical/blockstates/tin_ore.json
 4f082044584002c5be20c3c2122f0e867dfb74f2 assets/alchemical/models/block/deepslate_lead_ore.json

@@ -1,4 +1,4 @@
-// 1.19.4	2024-04-23T14:27:13.7273843	Tags for minecraft:block mod id alchemical
+// 1.19.4	2024-06-06T16:44:54.6399108	Tags for minecraft:block mod id alchemical
 98b09e5a5f630cf07c472978a6725c70023fb1bc data/forge/tags/blocks/ores.json
 55b2f2e85a8d4dde8c0fc655e4b8d421d471278f data/forge/tags/blocks/ores/lead.json
 fba4f80d70ddc59d653da4d7644bee811608487c data/forge/tags/blocks/ores/silver.json
@@ -13,5 +13,5 @@ f2a07492ab54027a3b81e4a7471a71a64119ea45 data/forge/tags/blocks/storage_blocks/s
 7ec2db5ce06c7f24175f203005670432b2ddaba0 data/forge/tags/blocks/storage_blocks/tin.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/axe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/hoe.json
-254a02b99e129baf63ffce0b42d3bad0a6f14d48 data/minecraft/tags/blocks/mineable/pickaxe.json
+3a788390bfb273726e9c78b333ef594e4b4a1e3c data/minecraft/tags/blocks/mineable/pickaxe.json
 35133e95f1c8fdd7a1c21afcc231fc0bffefb9a8 data/minecraft/tags/blocks/mineable/shovel.json

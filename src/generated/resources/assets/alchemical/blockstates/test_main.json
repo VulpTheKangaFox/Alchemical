@@ -1,0 +1,184 @@
+{
+  "variants": {
+    "facing=east,lit=false,neighbor=down": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 90
+    },
+    "facing=east,lit=false,neighbor=east": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 90
+    },
+    "facing=east,lit=false,neighbor=north": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 90
+    },
+    "facing=east,lit=false,neighbor=south": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 90
+    },
+    "facing=east,lit=false,neighbor=up": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 90
+    },
+    "facing=east,lit=false,neighbor=west": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 90
+    },
+    "facing=east,lit=true,neighbor=down": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 90
+    },
+    "facing=east,lit=true,neighbor=east": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 90
+    },
+    "facing=east,lit=true,neighbor=north": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 90
+    },
+    "facing=east,lit=true,neighbor=south": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 90
+    },
+    "facing=east,lit=true,neighbor=up": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 90
+    },
+    "facing=east,lit=true,neighbor=west": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 90
+    },
+    "facing=north,lit=false,neighbor=down": {
+      "model": "alchemical:block/elemental_furnace_bottom"
+    },
+    "facing=north,lit=false,neighbor=east": {
+      "model": "alchemical:block/elemental_furnace_bottom"
+    },
+    "facing=north,lit=false,neighbor=north": {
+      "model": "alchemical:block/elemental_furnace_bottom"
+    },
+    "facing=north,lit=false,neighbor=south": {
+      "model": "alchemical:block/elemental_furnace_bottom"
+    },
+    "facing=north,lit=false,neighbor=up": {
+      "model": "alchemical:block/elemental_furnace_bottom"
+    },
+    "facing=north,lit=false,neighbor=west": {
+      "model": "alchemical:block/elemental_furnace_bottom"
+    },
+    "facing=north,lit=true,neighbor=down": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit"
+    },
+    "facing=north,lit=true,neighbor=east": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit"
+    },
+    "facing=north,lit=true,neighbor=north": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit"
+    },
+    "facing=north,lit=true,neighbor=south": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit"
+    },
+    "facing=north,lit=true,neighbor=up": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit"
+    },
+    "facing=north,lit=true,neighbor=west": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit"
+    },
+    "facing=south,lit=false,neighbor=down": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 180
+    },
+    "facing=south,lit=false,neighbor=east": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 180
+    },
+    "facing=south,lit=false,neighbor=north": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 180
+    },
+    "facing=south,lit=false,neighbor=south": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 180
+    },
+    "facing=south,lit=false,neighbor=up": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 180
+    },
+    "facing=south,lit=false,neighbor=west": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 180
+    },
+    "facing=south,lit=true,neighbor=down": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 180
+    },
+    "facing=south,lit=true,neighbor=east": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 180
+    },
+    "facing=south,lit=true,neighbor=north": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 180
+    },
+    "facing=south,lit=true,neighbor=south": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 180
+    },
+    "facing=south,lit=true,neighbor=up": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 180
+    },
+    "facing=south,lit=true,neighbor=west": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 180
+    },
+    "facing=west,lit=false,neighbor=down": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 270
+    },
+    "facing=west,lit=false,neighbor=east": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 270
+    },
+    "facing=west,lit=false,neighbor=north": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 270
+    },
+    "facing=west,lit=false,neighbor=south": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 270
+    },
+    "facing=west,lit=false,neighbor=up": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 270
+    },
+    "facing=west,lit=false,neighbor=west": {
+      "model": "alchemical:block/elemental_furnace_bottom",
+      "y": 270
+    },
+    "facing=west,lit=true,neighbor=down": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 270
+    },
+    "facing=west,lit=true,neighbor=east": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 270
+    },
+    "facing=west,lit=true,neighbor=north": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 270
+    },
+    "facing=west,lit=true,neighbor=south": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 270
+    },
+    "facing=west,lit=true,neighbor=up": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 270
+    },
+    "facing=west,lit=true,neighbor=west": {
+      "model": "alchemical:block/elemental_furnace_bottom_lit",
+      "y": 270
+    }
+  }
+}

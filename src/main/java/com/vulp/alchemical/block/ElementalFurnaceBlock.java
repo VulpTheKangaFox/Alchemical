@@ -1,3 +1,4 @@
+/*
 package com.vulp.alchemical.block;
 
 import com.vulp.alchemical.block.entity.BlockEntityRegistry;
@@ -74,3 +75,4 @@ public class ElementalFurnaceBlock extends AbstractElementalFurnaceBlock {
     }
 
 }
+*/

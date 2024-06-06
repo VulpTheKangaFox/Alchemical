@@ -7,6 +7,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.client.model.generators.ModelFile;
@@ -45,6 +46,9 @@ public class AlchemicalBlockStateProvider extends BlockStateProvider {
         horizontalBlockWithItem(BlockRegistry.PRIMAL_CONTAINER, new ResourceLocation(Alchemical.MOD_ID, "block/primal_container"));
         horizontalBlockWithItem(BlockRegistry.ARCANE_CONTAINER, new ResourceLocation(Alchemical.MOD_ID, "block/arcane_container"));
 
+        horizontalBlockAndBooleanProperty(BlockRegistry.TEST_MAIN, new ResourceLocation(Alchemical.MOD_ID, "block/elemental_furnace_bottom_lit"), new ResourceLocation(Alchemical.MOD_ID, "block/elemental_furnace_bottom"), BlockStateProperties.LIT);
+        horizontalBlockAndBooleanProperty(BlockRegistry.TEST_DUMMY, new ResourceLocation(Alchemical.MOD_ID, "block/elemental_furnace_top_lit"), new ResourceLocation(Alchemical.MOD_ID, "block/elemental_furnace_top"), BlockStateProperties.LIT);
+
     }
 
     private void blockWithItem(RegistryObject<Block> blockRegistryObject) {
@@ -68,6 +72,18 @@ public class AlchemicalBlockStateProvider extends BlockStateProvider {
         ModelFile.ExistingModelFile existingFile = models().getExistingFile(existingModel);
         simpleBlockItem(block, existingFile);
         horizontalBlock(block, existingFile);
+    }
+
+    private void horizontalBlockAndBooleanProperty(RegistryObject<Block> blockRegistryObject, ResourceLocation existingModelFalse, ResourceLocation existingModelTrue, BooleanProperty property) {
+        Block block = blockRegistryObject.get();
+        ModelFile.ExistingModelFile trueFile = models().getExistingFile(existingModelTrue);
+        ModelFile.ExistingModelFile falseFile = models().getExistingFile(existingModelFalse);
+        getVariantBuilder(block)
+                .forAllStates(state -> ConfiguredModel.builder()
+                        .modelFile(state.getValue(property) ? falseFile : trueFile) // Dunno why these need to be backwards but they are and it works.
+                        .rotationY(((int) state.getValue(BlockStateProperties.HORIZONTAL_FACING).toYRot() + 180) % 360)
+                        .build()
+                );
     }
 
     public void horizontalBlockWithItem(Block block, Function<BlockState, ModelFile> modelFunc, int angleOffset) {

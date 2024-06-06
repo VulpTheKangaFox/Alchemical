@@ -81,8 +81,8 @@ public class CaptureContainerItem extends BlockItem {
                 return super.useOn(context);
             }
             ItemStack stack = context.getItemInHand();
-            CompoundTag targetInfo = stack.getOrCreateTagElement("held_elemental");
-            boolean flag = targetInfo.isEmpty();
+            CompoundTag targetInfo = stack.getTagElement("held_elemental");
+            boolean flag = targetInfo != null && targetInfo.isEmpty();
 
             BlockPos pos = context.getClickedPos();
             BlockState state = level.getBlockState(pos);
@@ -90,7 +90,7 @@ public class CaptureContainerItem extends BlockItem {
             boolean isClient = !(level instanceof ServerLevel);
             if (state.getBlock() instanceof CaptureBlock && level.getBlockEntity(pos) instanceof CaptureContainerBlockEntity blockEntity) {
 
-                CompoundTag newInfo = blockEntity.putElemental(targetInfo);
+                CompoundTag newInfo = blockEntity.switchElementalTags(targetInfo);
 
                 if (isClient && targetInfo != newInfo) {
                     Minecraft mc = Minecraft.getInstance();
@@ -104,7 +104,7 @@ public class CaptureContainerItem extends BlockItem {
                 return InteractionResult.SUCCESS;
             }
 
-            if (!flag) {
+            if (!flag && targetInfo != null) {
                 if (isClient) {
                     return InteractionResult.SUCCESS;
                 } else {
@@ -140,15 +140,16 @@ public class CaptureContainerItem extends BlockItem {
 
     @Nullable
     public static Component getFormattedElementalName(ItemStack elementalContainer) {
-        if (elementalContainer.hasTag()) {
-            CompoundTag targetInfo = elementalContainer.getOrCreateTagElement("held_elemental");
-            if (!targetInfo.isEmpty()) {
-                String name = targetInfo.getString("elemental_name");
+        CompoundTag heldElemental = elementalContainer.getTagElement("held_elemental");
+        if (heldElemental != null) {
+            if (!heldElemental.isEmpty()) {
+                String name = heldElemental.getString("elemental_name");
                 if (!name.isEmpty()) {
-                    return Component.translatable(name).withStyle(Style.EMPTY.withColor(targetInfo.getInt("elemental_color")).withItalic(true));
+                    return Component.translatable(name).withStyle(Style.EMPTY.withColor(heldElemental.getInt("elemental_color")).withItalic(true));
                 }
+            } else {
+                return Component.literal("???").withStyle(ChatFormatting.BLACK);
             }
-            return Component.literal("???").withStyle(ChatFormatting.BLACK);
         }
         return null;
     }

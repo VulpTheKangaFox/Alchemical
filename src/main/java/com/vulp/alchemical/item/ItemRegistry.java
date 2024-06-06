@@ -15,6 +15,8 @@ public class ItemRegistry {
 
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Alchemical.MOD_ID);
 
+    public static final RegistryObject<Item> DEBUGGER = ITEMS.register("debugger", () -> new DebuggerItem(new Item.Properties().stacksTo(1)));
+
     // TOOLS
     public static final RegistryObject<Item> ELEMENTALISTS_HAMMER = ITEMS.register("elementalists_hammer", () -> new ElementalistsHammerItem(new Item.Properties().stacksTo(1)));
 

@@ -4,6 +4,7 @@ import com.vulp.alchemical.block.BlockRegistry;
 import com.vulp.alchemical.item.ItemRegistry;
 import net.minecraft.data.loot.BlockLootSubProvider;
 import net.minecraft.world.flag.FeatureFlags;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.registries.RegistryObject;
 
@@ -33,11 +34,13 @@ public class AlchemicalBlockLootTables extends BlockLootSubProvider {
         dropSelf(BlockRegistry.RAW_SILVER_BLOCK.get());
         dropSelf(BlockRegistry.SILVER_BLOCK.get());
 
-        // TODO: Will likely need some custom code to retain contained elemental.
         add(BlockRegistry.ELEMENTAL_CONTAINER.get(), this.createSingleItemTable(ItemRegistry.ELEMENTAL_CONTAINER.get()));
         add(BlockRegistry.FUSION_CONTAINER.get(), this.createSingleItemTable(ItemRegistry.FUSION_CONTAINER.get()));
         add(BlockRegistry.PRIMAL_CONTAINER.get(), this.createSingleItemTable(ItemRegistry.PRIMAL_CONTAINER.get()));
         add(BlockRegistry.ARCANE_CONTAINER.get(), this.createSingleItemTable(ItemRegistry.ARCANE_CONTAINER.get()));
+        add(BlockRegistry.TEST_MAIN.get(), this.createSingleItemTable(Items.FURNACE));
+        add(BlockRegistry.TEST_DUMMY.get(), this.createSingleItemTable(ItemRegistry.ELEMENTAL_CONTAINER.get()));
+
     }
 
     @Override

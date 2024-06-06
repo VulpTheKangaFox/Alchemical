@@ -20,6 +20,11 @@ public class BlockEntityRegistry {
                     BlockRegistry.ARCANE_CONTAINER.get()
             ).build(null));
 
+    public static final RegistryObject<BlockEntityType<MainPairedBlockEntity>> TEST = BLOCK_ENTITIES.register("test_main",
+            () -> BlockEntityType.Builder.of(MainPairedBlockEntity::new, BlockRegistry.TEST_MAIN.get()).build(null));
+    public static final RegistryObject<BlockEntityType<DummyPairedBlockEntity>> PAIRED_BLOCK_DUMMY = BLOCK_ENTITIES.register("test_dummy",
+            () -> BlockEntityType.Builder.of(DummyPairedBlockEntity::new, BlockRegistry.TEST_DUMMY.get()).build(null));
+
     public static void register(IEventBus eventBus) {
         BLOCK_ENTITIES.register(eventBus);
     }

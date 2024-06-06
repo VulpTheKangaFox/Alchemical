@@ -1,4 +1,4 @@
-// 1.19.4	2024-04-23T14:27:13.7278843	Loot Tables
+// 1.19.4	2024-06-05T23:10:34.467885	Loot Tables
 5f58d24481caa5c5c17039b6b827661745cdb78a data/alchemical/loot_tables/blocks/arcane_container.json
 ce31ae2030ef77c8bb995c80d6ad12389140809b data/alchemical/loot_tables/blocks/deepslate_lead_ore.json
 4ba41614c622d0fa0ce330e569a65cdc0fe6f129 data/alchemical/loot_tables/blocks/deepslate_silver_ore.json
@@ -13,6 +13,8 @@ b8d2c562d7dfe886a81558e510b1429dfbfdc022 data/alchemical/loot_tables/blocks/lead
 58b7c686059528a0b2bd98211e5861832564fe71 data/alchemical/loot_tables/blocks/raw_tin_block.json
 81a9d7e05e73a94907e2dfb57ed9a9b515a710a5 data/alchemical/loot_tables/blocks/silver_block.json
 7df4dc441fd86dcea1d393fd4ac8c51b4d3cf81c data/alchemical/loot_tables/blocks/silver_ore.json
+962d584dc4e9b37ceed1145a7081223b8b826ae6 data/alchemical/loot_tables/blocks/test_dummy.json
+7d4005514c29e336d4a5229edc95013be18a87e4 data/alchemical/loot_tables/blocks/test_main.json
 58b00c5e8306f44e0632a318b1e33aba7c1daaf2 data/alchemical/loot_tables/blocks/tin_block.json
 b052a210556dbf935e254c67607521b425f6b335 data/alchemical/loot_tables/blocks/tin_ore.json
 6d0fecba6a7c5144e78f1764282c377c7e0f00d1 data/alchemical/loot_tables/entities/air_elemental.json

@@ -24,6 +24,8 @@ public class AlchemicalCreativeModeTabs {
 
     public static void addAlchemicalCreativeTabs(CreativeModeTabEvent.BuildContents event) {
         if(event.getTab() == AlchemicalCreativeModeTabs.ALCHEMICAL_TAB) {
+            event.accept(ItemRegistry.DEBUGGER);
+            event.accept(ItemRegistry.ELEMENTALISTS_HAMMER);
             // TIN ----------------------------------------------------
             event.accept(BlockRegistry.TIN_ORE);
             event.accept(BlockRegistry.DEEPSLATE_TIN_ORE);
