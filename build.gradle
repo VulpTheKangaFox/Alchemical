@@ -125,6 +125,8 @@ repositories {
     //     dir 'libs'
     // }
 
+    mavenCentral()
+
     maven {
         // location of the maven that hosts JEI files since January 2023
         name = "Jared's maven"
@@ -141,6 +143,7 @@ dependencies {
     compileOnly(fg.deobf("mezz.jei:jei-1.19.4-common-api:13.1.0.15"))
     compileOnly(fg.deobf("mezz.jei:jei-1.19.4-forge-api:13.1.0.15"))
     runtimeOnly(fg.deobf("mezz.jei:jei-1.19.4-forge:13.1.0.15"))
+    implementation fg.deobf("com.ptsmods:devlogin:3.4.1") // For Forge
 
     // Real mod deobf dependency examples - these get remapped to your current mappings
     // compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api") // Adds JEI API as a compile dependency
